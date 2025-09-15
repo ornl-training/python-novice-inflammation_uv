@@ -96,13 +96,17 @@ cd /D %userprofile%\Desktop\swc-python\data
 ::::::::::::::::: spoiler
 
 ```bash
-uvx --with jupyter --with matplotlib --with numpy jupyter notebook
+uv init
+uv add jupyter matplotlib numpy
+uv run jupyter notebook
 ```
 
-If you receive client errors, then try running the following command:
+If you run into errors, then try adding the `--native-tls` flag:
 
 ```bash
-uvx --native-tls --with jupyter --with matplotlib --with numpy jupyter notebook
+uv --native-tls init
+uv --native-tls add jupyter matplotlib numpy
+uv run jupyter notebook
 ```
 
 :::::::::::::::::::::::::

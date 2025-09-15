@@ -605,7 +605,7 @@ with Python. You can launch a notebook from the command line:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
   <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Command line (Terminal) </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
 <div class="accordion-body">
 <p>1. Navigate to the <code>data</code> directory:</p>
 <div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
@@ -613,7 +613,7 @@ with Python. You can launch a notebook from the command line:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Unix shell </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If you’re using a Unix shell application, such as Terminal app in
 macOS, Console or Terminal in Linux, or [Git Bash][gitbash] on Windows,
@@ -632,7 +632,7 @@ execute the following command:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Command Prompt (Windows) </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>On Windows, you can use its native Command Prompt program. The
 easiest way to start it up is pressing <kbd>Windows Logo
@@ -650,19 +650,23 @@ navigate to the <code>data</code> folder:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Show details </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">uvx</span> <span class="at">--with</span> jupyter <span class="at">--with</span> matplotlib <span class="at">--with</span> numpy jupyter notebook</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">uv</span> init</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">uv</span> add jupyter matplotlib numpy</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="ex">uv</span> run jupyter notebook</span></code></pre>
 </div>
-<p>If you receive client errors, then try running the following
-command:</p>
+<p>If you run into errors, then try adding the <code>--native-tls</code>
+flag:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">uvx</span> <span class="at">--native-tls</span> <span class="at">--with</span> jupyter <span class="at">--with</span> matplotlib <span class="at">--with</span> numpy jupyter notebook</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">uv</span> <span class="at">--native-tls</span> init</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">uv</span> <span class="at">--native-tls</span> add jupyter matplotlib numpy</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="ex">uv</span> run jupyter notebook</span></code></pre>
 </div>
 </div>
 </div>
@@ -723,8 +727,8 @@ and selecting “Python 3” from the drop-down menu: <img src="../fig/jupyter-n
   "url": "https://github.com/ornl-training/2025-09-18-ORNL/instructor/index.html",
   "identifier": "https://github.com/ornl-training/2025-09-18-ORNL/instructor/index.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2025-09-09",
-  "datePublished": "2025-09-09"
+  "dateModified": "2025-09-15",
+  "datePublished": "2025-09-15"
 }
 
   </script><script>

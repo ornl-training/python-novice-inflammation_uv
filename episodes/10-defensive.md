@@ -454,7 +454,7 @@ This violates another important rule of programming:
 A version of `range_overlap` that passes these tests looks like:
 
 ```python
-def range_overlap(ranges: List[Tuple[float, float]]) -> Optional[Tuple[float, float]]:
+def range_overlap(ranges):
     try:
         max_left = ranges[0][0]
         min_right = ranges[0][1]

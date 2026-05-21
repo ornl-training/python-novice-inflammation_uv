@@ -451,6 +451,24 @@ regardless of the input values.
 This violates another important rule of programming:
 *always initialize from data*.
 
+A version of `range_overlap` that passes these tests looks like:
+
+```python
+def range_overlap(ranges):
+    try:
+        max_left = ranges[0][0]
+        min_right = ranges[0][1]
+        for left, right in ranges:
+            max_left = max(max_left, left)
+            min_right = min(min_right, right)
+
+        if max_left >= min_right:
+            return None
+        return (max_left, min_right)
+    except IndexError:
+        return None
+```
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Pre- and Post-Conditions

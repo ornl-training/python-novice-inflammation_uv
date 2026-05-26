@@ -409,12 +409,11 @@ let's put them all in a function:
 
 ```python
 def test_range_overlap():
-    assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
-    assert range_overlap([ (0.0, 1.0), (1.0, 2.0) ]) == None
     assert range_overlap([ (0.0, 1.0) ]) == (0.0, 1.0)
     assert range_overlap([ (2.0, 3.0), (2.0, 4.0) ]) == (2.0, 3.0)
     assert range_overlap([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
-    assert range_overlap([]) == None
+    assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
+    assert range_overlap([ (0.0, 1.0), (1.0, 2.0) ]) == None
 ```
 
 We can now test `range_overlap` with a single function call:
@@ -426,20 +425,20 @@ test_range_overlap()
 ```error
 ---------------------------------------------------------------------------
 AssertionError                            Traceback (most recent call last)
-<ipython-input-29-cf9215c96457> in <module>()
+Cell , line 1
 ----> 1 test_range_overlap()
 
-<ipython-input-28-5d4cd6fd41d9> in test_range_overlap()
+Cell , line 3, in test_range_overlap()
       1 def test_range_overlap():
-----> 2     assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
-      3     assert range_overlap([ (0.0, 1.0), (1.0, 2.0) ]) == None
-      4     assert range_overlap([ (0.0, 1.0) ]) == (0.0, 1.0)
-      5     assert range_overlap([ (2.0, 3.0), (2.0, 4.0) ]) == (2.0, 3.0)
+      2     assert range_overlap([ (0.0, 1.0) ]) == (0.0, 1.0)
+----> 3     assert range_overlap([ (2.0, 3.0), (2.0, 4.0) ]) == (2.0, 3.0)
+      4     assert range_overlap([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
+      5     assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
 
-AssertionError:
+AssertionError: 
 ```
 
-The first test that was supposed to produce `None` fails,
+The test that was supposed to produce a simple range fails,
 so we know something is wrong with our function.
 We *don't* know whether the other tests passed or failed
 because Python halted the program as soon as it spotted the first error.
@@ -451,23 +450,64 @@ regardless of the input values.
 This violates another important rule of programming:
 *always initialize from data*.
 
-A version of `range_overlap` that passes these tests looks like:
+We can update our function so that it initializes `max_left` and `min_right`
+from the input data itself.
 
 ```python
 def range_overlap(ranges):
-    try:
-        max_left = ranges[0][0]
-        min_right = ranges[0][1]
-        for left, right in ranges:
-            max_left = max(max_left, left)
-            min_right = min(min_right, right)
-
-        if max_left >= min_right:
-            return None
-        return (max_left, min_right)
-    except IndexError:
-        return None
+    """Return common overlap among a set of [left, right] ranges."""
+    max_left, min_right = ranges[0]
+    for (left, right) in ranges:
+        max_left = max(max_left, left)
+        min_right = min(min_right, right)
+    return (max_left, min_right)
 ```
+
+Re-running our tests we see that we now pass the second test,
+but fail one of the non-overlapping cases.
+
+```python
+test_range_overlap()
+```
+```error
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+Cell , line 1
+----> 1 test_range_overlap()
+
+Cell , line 5, in test_range_overlap()
+      3 assert range_overlap([ (2.0, 3.0), (2.0, 4.0) ]) == (2.0, 3.0)
+      4 assert range_overlap([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
+----> 5 assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
+      6 assert range_overlap([ (0.0, 1.0), (1.0, 2.0) ]) == None
+
+AssertionError: 
+```
+It turns out that for our current implementation of the `range_overlap` function 
+we never handled the case where there is no overlap. This shows up when
+`max_left` is either equal to or greater than `min_right`, which isn't an actual range.
+We can edit our function one last time to catch this behaviour and return `None`.
+
+```python
+def range_overlap(ranges):
+    """Return common overlap among a set of [left, right] ranges."""
+    max_left, min_right = ranges[0]
+    for (left, right) in ranges:
+        max_left = max(max_left, left)
+        min_right = min(min_right, right)
+    if max_left >= min_right:
+        overlap = None
+    else:
+        overlap = (max_left, min_right)
+    return overlap
+```
+
+```python
+test_range_overlap()
+```
+
+We get no output from `test_range_overlap()`,
+which means all the tests passed.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -487,7 +527,7 @@ can you think of a function that will pass your tests but not his/hers or vice v
 # a possible pre-condition:
 assert len(input_array) > 0, 'Array length must be non-zero'
 # a possible post-condition:
-assert numpy.amin(input_array) <= average <= numpy.amax(input_array),
+assert numpy.min(input_array) <= average <= numpy.max(input_array),
 'Average should be between min and max of input values (inclusive)'
 ```
 

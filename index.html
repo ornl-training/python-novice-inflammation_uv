@@ -189,9 +189,6 @@
       <div class="accordion-body">
         <ul><li><a href="#overview">Overview</a></li>
 <li><a href="#install-uv-and-python">Install uv and Python</a></li>
-<li><a href="#obtain-lesson-materials">Obtain lesson materials</a></li>
-<li><a href="#launch-python-interface">Launch Python interface</a></li>
-<li><a href="#jupyter-notebook">Jupyter Notebook</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -457,100 +454,6 @@ displays the uv version number then the installation was successful.</p>
 </h3>
 <pre class="output" tabindex="0"><code>uv 0.8.4 (e176e1714 2025-07-30)</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="obtain-lesson-materials">Obtain lesson materials<a class="anchor" aria-label="anchor" href="#obtain-lesson-materials"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>Download <a href="data/python-novice-inflammation-data.zip">python-novice-inflammation-data.zip</a>
-and <a href="files/code/python-novice-inflammation-code.zip">python-novice-inflammation-code.zip</a>.</li>
-<li>Create a folder called <code>swc-python</code> on your Desktop.</li>
-<li>Move downloaded files to <code>swc-python</code>.</li>
-<li>Unzip the files.</li>
-</ol><p>You should see two folders called <code>data</code> and
-<code>code</code> in the <code>swc-python</code> directory on your
-Desktop.</p>
-</section><section><h2 class="section-heading" id="launch-python-interface">Launch Python interface<a class="anchor" aria-label="anchor" href="#launch-python-interface"></a></h2>
-<hr class="half-width"><p>To start working with Python, we need to launch a program that will
-interpret and execute our Python commands. For this workshop, we will
-assume the use of Jupyter Notebook.</p>
-</section><section><h2 class="section-heading" id="jupyter-notebook">Jupyter Notebook<a class="anchor" aria-label="anchor" href="#jupyter-notebook"></a></h2>
-<hr class="half-width"><p>A Jupyter Notebook provides a browser-based interface for working
-with Python. You can launch a notebook from the command line:</p>
-<div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
-  <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Command line (Terminal) </h3>
-</button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
-<div class="accordion-body">
-<p>1. Navigate to the <code>data</code> directory:</p>
-<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
-  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Unix shell </h3>
-</button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
-<div class="accordion-body">
-<p>If you’re using a Unix shell application, such as Terminal app in
-macOS, Console or Terminal in Linux, or [Git Bash][gitbash] on Windows,
-execute the following command:</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="bu">cd</span> ~/Desktop/swc-python/data</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
-  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Command Prompt (Windows) </h3>
-</button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
-<div class="accordion-body">
-<p>On Windows, you can use its native Command Prompt program. The
-easiest way to start it up is pressing <kbd>Windows Logo
-Key</kbd>+<kbd>R</kbd>, entering <code>cmd</code>, and hitting
-<kbd>Return</kbd>. In the Command Prompt, use the following command to
-navigate to the <code>data</code> folder:</p>
-<pre class="source"><code>cd /D %userprofile%\Desktop\swc-python\data</code></pre>
-</div>
-</div>
-</div>
-</div>
-<p>2. Start Jupyter server</p>
-<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
-  <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Show details </h3>
-</button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">uv</span> init</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="ex">uv</span> add jupyter matplotlib numpy</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="ex">uv</span> run jupyter notebook</span></code></pre>
-</div>
-<p>If you run into errors, then try adding the <code>--native-tls</code>
-flag:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">uv</span> <span class="at">--native-tls</span> init</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="ex">uv</span> <span class="at">--native-tls</span> add jupyter matplotlib numpy</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="ex">uv</span> run jupyter notebook</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>3. Launch the notebook by clicking on the “New” button on the right
-and selecting “Python 3” from the drop-down menu: <img src="fig/jupyter-notebook-launch-notebook2.png" alt="Anaconda Navigator Notebook directory" class="figure"></p>
-</div>
-</div>
-</div>
-</div>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="01-intro.html" rel="next">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
@@ -602,8 +505,8 @@ and selecting “Python 3” from the drop-down menu: <img src="fig/jupyter-note
   "url": "https://github.com/ornl-training/2025-09-18-ORNL/index.html",
   "identifier": "https://github.com/ornl-training/2025-09-18-ORNL/index.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-08-04",
-  "datePublished": "2026-08-04"
+  "dateModified": "2026-08-10",
+  "datePublished": "2026-08-10"
 }
 
   </script><script>

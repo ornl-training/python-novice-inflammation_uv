@@ -58,7 +58,8 @@ contact: 'team@carpentries.org'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
+- 00-template.md
 - 01-intro.md
 - 02-numpy.md
 - 03-matplotlib.md
